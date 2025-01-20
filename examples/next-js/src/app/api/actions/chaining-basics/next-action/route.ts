@@ -53,7 +53,7 @@ export const POST = async (req: Request) => {
 
     let signature: string;
     try {
-      signature = body.signature;
+      signature = body.signature!;
       if (!signature) throw "Invalid signature";
     } catch (err) {
       throw 'Invalid "signature" provided';

@@ -44,18 +44,22 @@ export const GET = async (req: Request) => {
       links: {
         actions: [
           {
+            type: "post",
             label: "Stake 1 SOL", // button text
             href: `${baseHref}&amount=${"1"}`,
           },
           {
+            type: "post",
             label: "Stake 5 SOL", // button text
             href: `${baseHref}&amount=${"5"}`,
           },
           {
+            type: "post",
             label: "Stake 10 SOL", // button text
             href: `${baseHref}&amount=${"10"}`,
           },
           {
+            type: "post",
             label: "Stake SOL", // button text
             href: `${baseHref}&amount={amount}`, // this href will have a text input
             parameters: [
@@ -140,6 +144,7 @@ export const POST = async (req: Request) => {
 
     const payload: ActionPostResponse = await createPostResponse({
       fields: {
+        type: "transaction",
         transaction,
         message: `Stake ${amount} SOL to validator ${validator.toBase58()}`,
       },

@@ -32,6 +32,7 @@ export const GET = async (req: Request) => {
     links: {
       actions: [
         {
+          type: 'post',
           href: "/api/actions/chaining-basics",
           label: "Send Memo",
           parameters: [
@@ -117,6 +118,7 @@ export const POST = async (req: Request) => {
 
     const payload: ActionPostResponse = await createPostResponse({
       fields: {
+        type: 'transaction',
         transaction,
         message: "Post this memo on-chain",
         links: {
