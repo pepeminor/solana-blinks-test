@@ -42,22 +42,18 @@ export const GET = async (req: Request) => {
       links: {
         actions: [
           {
-            type: "post",
             label: "Send 1 SOL", // button text
             href: `${baseHref}&amount=${"1"}`,
           },
           {
-            type: "post",
             label: "Send 5 SOL", // button text
             href: `${baseHref}&amount=${"5"}`,
           },
           {
-            type: "post",
             label: "Send 10 SOL", // button text
             href: `${baseHref}&amount=${"10"}`,
           },
           {
-            type: "post",
             label: "Send SOL", // button text
             href: `${baseHref}&amount={amount}`, // this href will have a text input
             parameters: [
@@ -68,7 +64,7 @@ export const GET = async (req: Request) => {
               },
             ],
           },
-        ],
+        ] as any,
       },
     };
 
@@ -147,10 +143,9 @@ export const POST = async (req: Request) => {
 
     const payload: ActionPostResponse = await createPostResponse({
       fields: {
-        type: "transaction",
         transaction,
         message: `Send ${amount} SOL to ${toPubkey.toBase58()}`,
-      },
+      } as any,
       // note: no additional signers are needed
       // signers: [],
     });
